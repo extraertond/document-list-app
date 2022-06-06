@@ -1,0 +1,42 @@
+@import "../../assets/styles/variables";
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input {
+  @media (max-width: $lg) {
+    display: none;
+  }
+  font-family: Roboto;
+  margin-left: 20px;
+  font-size: 15px;
+  min-width: 200px;
+  border-radius: 5px;
+  border: 1 solid #487f5a;
+  height: 30px;
+}
+.sections {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0px;
+  font-size: 15px;
+
+  img {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+  }
+
+  @media (min-width: $md) {
+    padding: 5px 0px;
+    font-size: 18px;
+  }
+
+  @media (min-width: $lg) {
+    font-size: 25px;
+    padding: 10px 0px;
+  }
+}

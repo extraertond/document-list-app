@@ -1,0 +1,53 @@
+@import "../../assets/styles/variables";
+
+.document {
+  margin-top: 20px;
+  // @media (max-width: $lg) {
+  //   flex-direction: column;
+  //   align-items: center;
+  // }
+
+  img {
+    // @media (max-width: $lg) {
+    //   max-width: 200px;
+    // }
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 17px;
+  }
+
+  .link {
+    color: #0b1643;
+
+    img {
+      margin-top: -2px;
+      width: 23px;
+      height: auto;
+      margin-left: 5px;
+    }
+  }
+
+  .prev {
+    margin-right: 5px;
+    margin-left: 0px !important;
+    transform: rotate(180deg);
+  }
+
+  .disabled {
+    pointer-events: none;
+    text-decoration: none;
+    opacity: 0.6;
+  }
+
+  .delete-container {
+    margin-top: 30px;
+  }
+}

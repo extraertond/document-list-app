@@ -1,0 +1,65 @@
+export const mockedDocuments = [
+  {
+    id: 0,
+    title: "Document 0",
+    date: "06-06-2022 21:22:12",
+    type: "simple",
+  },
+  {
+    id: 1,
+    title: "Document 1",
+    date: "06-06-2022 21:22:12",
+    text: "This is the document text",
+    type: "custom",
+  },
+  {
+    id: 2,
+    title: "Document 2",
+    date: "06-06-2022 21:22:12",
+    text: "This is the document text is the document textis the document textis the document textis the document textis the document textis the document textis the document textis the document text",
+    type: "advanced",
+    image: "https://cdn.pixabay.com/photo/2020/05/08/15/31/stationary-5146194_960_720.jpg",
+  },
+  {
+    id: 3,
+    title: "Document 3",
+    date: "06-06-2022 21:22:12",
+    text: "This is the document text",
+    type: "advanced",
+    image: "https://cdn.pixabay.com/photo/2020/05/08/15/31/stationary-5146194_960_720.jpg",
+  },
+  {
+    id: 4,
+    title: "Document 4",
+    date: "06-06-2022 21:22:12",
+    text: "This is the document text",
+    type: "advanced",
+    image: "https://cdn.pixabay.com/photo/2020/05/08/15/31/stationary-5146194_960_720.jpg",
+  },
+  {
+    id: 5,
+    title: "Document 5",
+    date: "06-06-2022 21:22:12",
+    text: "This is the document text",
+    type: "advanced",
+    image: "https://cdn.pixabay.com/photo/2020/05/08/15/31/stationary-5146194_960_720.jpg",
+  },
+  {
+    id: 6,
+    title: "Document 6",
+    date: "06-06-2022 21:22:12",
+    text: "This is the document text",
+    type: "advanced",
+    image: "https://cdn.pixabay.com/photo/2020/05/08/15/31/stationary-5146194_960_720.jpg",
+  },
+  {
+    id: 7,
+    title: "Document 7",
+    date: "06-06-2022 21:22:12",
+    text: "This is the document text",
+    type: "advanced",
+    image: "https://cdn.pixabay.com/photo/2020/05/08/15/31/stationary-5146194_960_720.jpg",
+  },
+];
+
+export default mockedDocuments;
