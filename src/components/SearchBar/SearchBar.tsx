@@ -1,7 +1,6 @@
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../redux/actions";
-import { useState } from "react";
 import "./SearchBar.scss";
 
 const SearchBar: React.FC<{}> = () => {

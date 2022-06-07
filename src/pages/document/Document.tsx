@@ -1,54 +1,41 @@
 import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import DocumentForm from "../../components/documents/documentForm";
+import DocumentTemplate from "../../components/documents/documentTemplate";
 import actions from "../../redux/actions";
-import arrowIcon from "../../assets/icons/arrow.svg";
 import "./Document.scss";
 
-const Document: React.FC<{}> = () => {
+type IProps = {
+  add?: boolean;
+};
+
+const Document: React.FC<IProps> = ({ add = false }: IProps) => {
   const params = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { documents, currentDocument, currentChecked, hasNext, hasPrev } = useSelector((state: any) => state.documents);
+
+  const { currentDocument: document, currentChecked } = useSelector((state: any) => state.documents);
+  const edit = false;
 
   useEffect(() => {
-    if (params.id && documents.length) {
+    if (params.id) {
       dispatch(actions.setCurrentDocument(params.id));
     }
-  }, [params.id, documents]);
+  }, [params.id]);
 
   useEffect(() => {
-    if (currentChecked && !currentDocument) {
+    if (currentChecked && !document) {
       navigate("/404");
     }
-  }, [currentDocument, currentChecked]);
+  }, [document, currentChecked]);
 
   return (
     <>
-      {currentDocument && (
-        <div className="document">
-          <div className="row">
-            <Link className={`row link ${hasPrev ? "" : "disabled"}`} to={`/document/${currentDocument.id - 1}`}>
-              <img className="prev" alt="prev-document" src={arrowIcon}></img>
-              <span>{"Previous document"}</span>
-            </Link>
-            <Link className={`row link ${hasNext ? "" : "disabled"}`} to={`/document/${currentDocument.id + 1}`}>
-              <span>{"Next document"}</span>
-              <img alt="next-document" src={arrowIcon}></img>
-            </Link>
-          </div>
-          <div className="row-vertical">
-            <h1>{currentDocument.title}</h1>
-            <p>{currentDocument.text}</p>
-          </div>
-          <div className="center-row">
-            <img alt={`${currentDocument.title}-${currentDocument.type}`} src={currentDocument.image}></img>
-          </div>
-          <div className="row delete-container">
-            <div>{currentDocument.date}</div>
-            <button>Delete</button>
-          </div>
-        </div>
+      {add || edit ? (
+        <DocumentForm add={add} document={document} />
+      ) : (
+        document && <DocumentTemplate document={document} />
       )}
     </>
   );

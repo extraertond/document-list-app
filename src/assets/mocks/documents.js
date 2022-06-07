@@ -30,10 +30,10 @@ export const mockedDocuments = [
   },
   {
     id: 4,
-    title: "Document 4",
-    date: "06-06-2022 21:22:12",
-    text: "This is the document text",
     type: "advanced",
+    title: "Document 4",
+    text: "This is the document text",
+    date: "06-06-2022 21:22:12",
     image: "https://cdn.pixabay.com/photo/2020/05/08/15/31/stationary-5146194_960_720.jpg",
   },
   {

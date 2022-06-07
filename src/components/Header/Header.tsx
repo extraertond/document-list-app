@@ -1,15 +1,16 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import homeIcon from "../../assets/icons/home.svg";
+import { HOME_URL as homeUrl } from "../../config/constants";
 import SearchBar from "../SearchBar";
 import "./Header.scss";
 
 const Header: React.FC<{}> = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="navbar-container">
       <div className="sections">
-        <img alt="home-logo" src={homeIcon} onClick={() => navigate("")}></img>
+        <Link to={homeUrl}>
+          <img alt="home-logo" src={homeIcon}></img>
+        </Link>
       </div>
       <SearchBar />
     </div>

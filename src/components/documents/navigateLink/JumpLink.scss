@@ -1,0 +1,33 @@
+@import "../../../assets/styles/variables";
+
+.link {
+  color: $color-primary;
+  text-decoration: none;
+
+  &:hover {
+    font-weight: bold;
+  }
+
+  img {
+    margin-top: -2px;
+    width: 23px;
+    height: auto;
+    margin-left: 5px;
+  }
+}
+
+.prev {
+  margin-right: 5px;
+  margin-left: 0px !important;
+  transform: rotate(180deg);
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+
+.disabled {
+  pointer-events: none;
+  text-decoration: none;
+  opacity: 0.6;
+}
