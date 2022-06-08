@@ -2,7 +2,7 @@ type IDocument = {
   id: number;
   title: string;
   date: string;
-  type: "base" | "custom" | "advanced";
+  type: "simple" | "custom" | "advanced";
   image?: string;
   text?: string;
 };

@@ -3,5 +3,12 @@
     "prev": "Previous document",
     "next": "Next document",
     "details": "Details"
+  },
+  "form": {
+    "submit": "Create",
+    "type": "Type",
+    "title": "Title",
+    "text": "Text",
+    "image": "Image"
   }
 }

@@ -30,15 +30,7 @@ const Document: React.FC<IProps> = ({ add = false }: IProps) => {
     }
   }, [document, currentChecked]);
 
-  return (
-    <>
-      {add || edit ? (
-        <DocumentForm add={add} document={document} />
-      ) : (
-        document && <DocumentTemplate document={document} />
-      )}
-    </>
-  );
+  return <>{add || edit ? <DocumentForm add={add} /> : document && <DocumentTemplate document={document} />}</>;
 };
 
 export default Document;

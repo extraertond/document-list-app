@@ -1,3 +1,4 @@
+import { DOCUMENT_FORM_TEMPLATE as formTemplate } from "../../config/forms";
 import IDocument from "../../models/IDocument";
 import IReducerAction from "../../models/IReducerAction";
 import actionTypes from "../actionTypes";
@@ -9,6 +10,7 @@ let initialState = {
   hasNext: false,
   hasPrev: false,
   searchText: "",
+  form: { ...formTemplate },
 };
 
 const Document = (state = initialState, { type, payload }: IReducerAction) => {
@@ -16,6 +18,10 @@ const Document = (state = initialState, { type, payload }: IReducerAction) => {
     case actionTypes.LOAD_DOCUMENTS:
       return {
         ...state,
+        currentDocument: null,
+        currentChecked: false,
+        hasNext: false,
+        hasPrev: false,
         documents: payload,
       };
     case actionTypes.SET_CURRENT_DOCUMENT:
@@ -31,6 +37,18 @@ const Document = (state = initialState, { type, payload }: IReducerAction) => {
       newState.hasNext = index === 0 ? !!state.documents.length : !!index && index < state.documents.length - 1;
       newState.currentChecked = true;
       return newState;
+    case actionTypes.SET_FORM_DOCUMENT:
+      if (payload.id) {
+        const current = state.documents.find((doc: IDocument) => doc.id.toString() === payload);
+        // seteo el form con current
+      }
+      return { ...state };
+    case actionTypes.SET_FORM_VALUE:
+      console.log(payload);
+      const form: any = state.form;
+      form[payload.field].value = payload.value;
+      console.log(form);
+      return { ...state, form };
     case actionTypes.SET_SEARCH_TEXT:
       return {
         ...state,

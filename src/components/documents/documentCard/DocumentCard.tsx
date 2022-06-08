@@ -3,11 +3,11 @@ import { useTranslation } from "react-i18next";
 import IDocument from "../../../models/IDocument";
 import "./DocumentCard.scss";
 
-type Props = {
+type IProps = {
   document: IDocument;
 };
 
-const DocumentCard: React.FC<Props> = ({ document }: Props) => {
+const DocumentCard: React.FC<IProps> = ({ document }: IProps) => {
   const { t } = useTranslation();
 
   return (
