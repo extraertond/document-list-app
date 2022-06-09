@@ -2,7 +2,7 @@ type IField = {
   value: string | number;
   errored: boolean;
   disabled: boolean;
-  errorText?: string;
+  errorText: string;
 };
 
 export default IField;

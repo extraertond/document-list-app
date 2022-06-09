@@ -1,5 +1,13 @@
 @import "../../assets/styles/variables";
 
 form {
+  text-align: center;
   font-family: Roboto;
+
+  button {
+    margin-top: 20px;
+    min-width: 120px;
+    padding: 8px 10px;
+    height: auto;
+  }
 }

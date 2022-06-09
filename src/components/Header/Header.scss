@@ -8,19 +8,23 @@
 
 .sections {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  width: 100%;
   padding: 10px 0px;
-  font-size: 15px;
+  font-size: $font-size-sm;
 
   img {
     width: 40px;
     height: auto;
     cursor: pointer;
+    @media (min-width: $md) {
+      margin-left: 30px;
+    }
   }
 
   @media (min-width: $md) {
     padding: 5px 0px;
-    font-size: 18px;
+    font-size: $font-size-md;
   }
 
   @media (min-width: $lg) {

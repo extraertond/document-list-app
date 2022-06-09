@@ -1,34 +1,41 @@
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { DOCUMENT_TYPES as types } from "../../../config/constants";
-import { DOCUMENT_FORM_TEMPLATE } from "../../../config/forms";
+import { useEffect, useMemo } from "react";
+import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { DOCUMENT_TYPES as types, HOME_URL as homeUrl } from "../../../config/constants";
 import actions from "../../../redux/actions";
+import formService from "../../../services/formService";
 import Form from "../../form";
 import SelectField from "../../form/input/selectField";
 import TextField from "../../form/input/textField";
 import "./DocumentForm.scss";
 
-type IProps = {
-  add: boolean;
-};
-
-const DocumentForm: React.FC<IProps> = ({ add }: IProps) => {
-  const form = { ...DOCUMENT_FORM_TEMPLATE };
+const DocumentForm: React.FC<{}> = () => {
+  const { form } = useSelector((state: any) => state.documents);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    if (form.valid.value) {
+      navigate(`${homeUrl}?page=0`);
+      changeValue("valid", false);
+    }
+  }, [form.valid.value]);
 
   const changeValue = (field: string, value: any) => {
-    console.log(field, value);
     dispatch(actions.setFormValue(field, value));
   };
 
+  const checkedUrl = useMemo(() => formService.checkUrl(form.image.value), [form.image.value]);
+
   return (
-    <Form valid={form.valid} onSubmit={() => console.log("submit")}>
-      <div className="vertical-row">
+    <Form onSubmit={() => dispatch(actions.SaveDocument())}>
+      <div className="vertical-row form">
         <SelectField
           onChange={(value: string) => changeValue("type", value)}
           field={form.type}
           label={"form.type"}
-          placeholder={"form.type-placeholder"}
           options={types}
         />
         <TextField
@@ -36,12 +43,7 @@ const DocumentForm: React.FC<IProps> = ({ add }: IProps) => {
           field={form.title}
           label={"form.title"}
           placeholder={"form.title-placeholder"}
-        />
-        <TextField
-          onChange={(value: string) => changeValue("image", value)}
-          field={form.image}
-          label={"form.image"}
-          placeholder={"form.image-placeholder"}
+          maxLength={15}
         />
         <TextField
           onChange={(value: string) => changeValue("text", value)}
@@ -50,6 +52,18 @@ const DocumentForm: React.FC<IProps> = ({ add }: IProps) => {
           placeholder={"form.text-placeholder"}
           large
         />
+        <TextField
+          onChange={(value: string) => changeValue("image", value)}
+          field={form.image}
+          label={"form.image"}
+          placeholder={"form.image-placeholder"}
+        />
+        {checkedUrl && (
+          <div className="row-vertical">
+            <div className="preview-title">{t("form.preview-image")}</div>
+            <img className="checked-image" alt="new-document" src={form.image.value}></img>
+          </div>
+        )}
       </div>
     </Form>
   );

@@ -1,0 +1,17 @@
+@import "../../../assets/styles/variables";
+
+.form {
+  align-items: center !important;
+
+  .row-vertical {
+    text-align: start;
+  }
+  .preview-title {
+    font-size: $font-size-md;
+  }
+  .checked-image {
+    border-radius: 10%;
+    width: 200px;
+    height: auto;
+  }
+}

@@ -15,6 +15,7 @@ const Input: React.FC<IProps> = ({ field, label, children }: IProps) => {
     <div className="vertical-row field">
       <label>{t(label)}</label>
       {children}
+      {field.errored && <span className="error-text">{t(field.errorText)}</span>}
     </div>
   );
 };

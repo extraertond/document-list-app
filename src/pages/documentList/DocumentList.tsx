@@ -1,16 +1,19 @@
 import { useSelector } from "react-redux";
 import DocumentCard from "../../components/documents/documentCard";
+import Paginator from "../../components/paginator";
+import SearchBar from "../../components/SearchBar";
 import IDocument from "../../models/IDocument";
 import "./DocumentList.scss";
 
 const DocumentList: React.FC<{}> = () => {
-  const { documents } = useSelector((state: any) => state.documents);
-
+  const { pageDocuments } = useSelector((state: any) => state.documents);
   return (
     <div className="list-container">
-      {documents.map((document: IDocument) => (
+      <SearchBar />
+      {pageDocuments.map((document: IDocument) => (
         <DocumentCard key={document.id} document={document} />
       ))}
+      <Paginator />
     </div>
   );
 };

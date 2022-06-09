@@ -3,15 +3,19 @@ import { useTranslation } from "react-i18next";
 import "./Form.scss";
 
 type IProps = {
-  valid: boolean;
   onSubmit: FormEventHandler<HTMLFormElement>;
   submitLabel?: string;
   children: JSX.Element;
 };
-const Form: React.FC<IProps> = ({ valid, onSubmit, submitLabel = "form.submit", children }: IProps) => {
+const Form: React.FC<IProps> = ({ onSubmit, submitLabel = "form.submit", children }: IProps) => {
   const { t } = useTranslation();
+  const submit = (e: any) => {
+    e.preventDefault();
+    onSubmit(e);
+  };
+
   return (
-    <form className="card" onSubmit={onSubmit}>
+    <form className="card" onSubmit={submit}>
       {children}
       <button type="submit">{t(submitLabel)}</button>
     </form>

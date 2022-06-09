@@ -6,9 +6,23 @@
   },
   "form": {
     "submit": "Create",
+    "delete": "Delete",
     "type": "Type",
     "title": "Title",
+    "title-placeholder": "Type a title...",
     "text": "Text",
-    "image": "Image"
+    "text-placeholder": "Type text...",
+    "image": "Image",
+    "image-placeholder": "https://example.com/image.jpg...",
+    "select-default": "Select an option...",
+    "filter-type": "Filter by type",
+    "filter-text": "Filter by title",
+    "preview-image": "Preview image",
+    "error": {
+      "mandatory": "This field is mandatory"
+    }
+  },
+  "recently": {
+    "recently-visited": "Recently visited"
   }
 }

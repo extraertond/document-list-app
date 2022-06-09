@@ -6,3 +6,5 @@ export const DOCUMENT_TYPES = [
   { id: 1, text: "custom" },
   { id: 2, text: "advanced" },
 ];
+
+export const PAGE_SIZE = 5;

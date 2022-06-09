@@ -1,11 +1,6 @@
 @import "./variables";
 
 .card {
-  // @media (max-width: $lg) {
-  //   width: 300px;
-  //   flex-direction: column;
-  //   align-items: center;
-  // }
   min-width: 340px;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
@@ -13,14 +8,15 @@
   margin-top: 20px;
   background-color: white;
 
+  @media (min-width: $md) {
+    min-width: 600px;
+  }
+
   &:last-child {
     margin-bottom: 20px;
   }
 
   img {
-    // @media (max-width: $lg) {
-    //   width: 120px;
-    // }
     margin-right: 10px;
     width: 50px;
     height: 50px;
@@ -28,32 +24,24 @@
   }
 
   .title {
-    // @media (max-width: $lg) {
-    //   font-size: 25px;
-    // }
-    font-size: 20px;
+    font-size: $font-size-lg;
     font-weight: 700;
+    max-width: 250px;
   }
 
   .subtitle {
-    // @media (max-width: $lg) {
-    //   font-size: 18px;
-    // }
     font-size: 17px;
   }
 }
 
 button {
-  // @media (max-width: $lg) {
-  //   font-size: 15px;
-  // }
   background-color: $color-primary;
   color: $color-white;
   height: 50px;
   border: 0px solid;
   border-radius: 5px;
   padding: 15px 10px;
-  font-size: $font-size-sm;
+  font-size: $font-size-lg;
   border: none;
   cursor: pointer;
 }
@@ -73,6 +61,10 @@ button {
   justify-content: center;
   flex-direction: column;
   align-items: start;
+}
+
+.errored {
+  border-color: red;
 }
 
 html {

@@ -1,31 +1,10 @@
 @import "../../assets/styles/variables";
 
-.navbar-container {
+.search-container {
+  min-width: 360px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.sections {
-  display: flex;
-  justify-content: space-around;
-  padding: 10px 0px;
-  font-size: 15px;
-
-  img {
-    max-width: 80px;
-    height: auto;
-    margin-left: 10px;
-    cursor: pointer;
-  }
-
+  flex-direction: column;
   @media (min-width: $md) {
-    padding: 5px 0px;
-    font-size: 18px;
-  }
-
-  @media (min-width: $lg) {
-    font-size: 25px;
-    padding: 10px 0px;
+    min-width: 616px;
   }
 }

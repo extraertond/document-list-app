@@ -1,5 +1,5 @@
 export const DOCUMENT_FORM_TEMPLATE = {
-  valid: false,
+  valid: { value: false },
   type: {
     value: "",
     errored: false,
@@ -28,6 +28,21 @@ export const DOCUMENT_FORM_TEMPLATE = {
     value: "",
     errored: false,
     errorText: "",
-    disabled: true,
+    disabled: false,
+  },
+};
+
+export const SEARCH_FORM_TEMPLATE = {
+  text: {
+    value: "",
+    errored: false,
+    errorText: "",
+    disabled: false,
+  },
+  type: {
+    value: "",
+    errored: false,
+    errorText: "",
+    disabled: false,
   },
 };

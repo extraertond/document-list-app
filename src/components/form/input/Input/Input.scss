@@ -1,13 +1,36 @@
+@import "../../../../assets/styles/variables";
+
 .field {
+  max-width: 800px;
+  width: 100%;
   margin-bottom: 10px;
+  align-items: start !important;
   label {
+    font-size: $font-size-lg;
     font-weight: 600;
     margin-bottom: 5px;
+  }
+  .error-text {
+    color: red;
+    font-size: $font-size-sm;
+    margin-top: 3px;
   }
   input,
   textarea,
   select {
-    min-width: 300px;
     font-family: Roboto;
+    font-size: $font-size-md;
+    border-radius: 2px;
+    border-width: 1px;
+    padding: 2px;
+    width: 98%;
+    min-height: 30px;
+  }
+  select {
+    @media (min-width: $md) {
+      min-width: 620px;
+    }
+    min-height: 35px;
+    width: 100%;
   }
 }
