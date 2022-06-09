@@ -1,8 +1,8 @@
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { DOCUMENT_TYPES as types, HOME_URL as homeUrl } from "../../../config/constants";
+import { DOCUMENT_TYPES as types } from "../../../config/constants";
+import useCreated from "../../../hooks/useCreated";
 import actions from "../../../redux/actions";
 import formService from "../../../services/formService";
 import Form from "../../form";
@@ -13,15 +13,9 @@ import "./DocumentForm.scss";
 const DocumentForm: React.FC<{}> = () => {
   const { form } = useSelector((state: any) => state.documents);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { t } = useTranslation();
 
-  useEffect(() => {
-    if (form.valid.value) {
-      navigate(`${homeUrl}?page=0`);
-      changeValue("valid", false);
-    }
-  }, [form.valid.value]);
+  useCreated();
 
   const changeValue = (field: string, value: any) => {
     dispatch(actions.setFormValue(field, value));

@@ -15,7 +15,7 @@ const RecentlyVisited: React.FC<{}> = () => {
           <div className="title">{t("recently.recently-visited")}</div>
           <div>
             {recentlyVisited.map((doc: IDocument) => (
-              <Link className="link" to={`/document/${doc.id}`}>
+              <Link key={doc.id} className="link" to={`/document/${doc.id}`}>
                 {doc.title}
               </Link>
             ))}

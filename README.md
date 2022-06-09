@@ -1,46 +1,37 @@
-# Getting Started with Create React App
+# Breaking Bad Characters List
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+El proyecto se ha creado usando TypeScript e interfaces (modelos) como lenguaje de programación, Redux y Redux-thunk como patrones de diseño para el control del estado.
 
-## Available Scripts
+## Redux y Redux-thunk
 
-In the project directory, you can run:
+Redux se ha dividido principalmente en dos stores, una para los characters y otro para los quotes, con sus correspondientes reducers y thunks (esta última librería para el manejo de peticiones asíncronas y el estado). Se inicializa el contexto (Provider) al nivel más alto de la aplicación puesto que no hay muchos datos y estos van a ser necesarios en toda la aplicación.
 
-### `npm start`
+## Internacionalización
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Para la internacionalización se ha seguido el estandar i18n y las librerías i18next para el control de las traducciones y etiquetas y i18next-browser-languagedetector para la detección automática del idioma del navegador del usuario, en cualquier caso se puede cambiar el idioma entre inglés y español con el selector que hay en la parte superior derecha.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Enrutamiento
 
-### `npm test`
+Para el enrutamiento se ha usado la libreria react-router-dom (como no podía ser de otra forma). Solo existen tres rutas: / que es el listado de personajes; /character/:id donde se muestra toda la información del personaje al que pernece el id pasado como parámetro; una ruta 404 para todas las páginas que no caígan en las dos primeras.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Control de errores
 
-### `npm run build`
+En caso de recibir algún error desde el servidor (o no recibir respuesta) se mostrará un mensaje de error al usuario en pantalla. Este error se controla a través de Redux-thunk y se recoge a alto nivel, así se evita tener que estar preocupándose por los errores en cada componente.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Estilos y librerías de componentes
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Para el estilizado de la aplicación se ha usado el framework de css Sass. El estilo de la aplicación es muy mejorable por la falta de tiempo y centrarme en otras partes más cruciales de la aplicación. Para algunos componentes e íconos se ha usado la librería material-UI:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Responsive design
 
-### `npm run eject`
+Se ha programado la aplicación de tal forma que sea responsiva y se redimensione correctamente para dispositivos móviles.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Testing
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Por el mismo motivo de tiempo mencionado anteriormente, no se ha podido completar la parte del testing, entre otras cosas. He decidido darle menos prioridad a esta parte porque considero que es algo relativamente sencillo de hacer pero que requiere de bastante tiempo.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Funcionalidad extra
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Como funcionalidad extra se ha añadido un Header/Navbar donde se aglutina un logo para volver al listado de personajes, un buscador funciona para buscar personajes por nombre (nombre fictio de la serie o nombre del actor) y en la parte derecha el selector de lenguaje. También se ha añadido un botón para scrollear hasta arriba.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Néstor Fernández González

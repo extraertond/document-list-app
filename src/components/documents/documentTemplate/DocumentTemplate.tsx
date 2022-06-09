@@ -1,8 +1,9 @@
-import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { HOME_URL as homeUrl } from "../../../config/constants";
+import useCurrentLoad from "../../../hooks/useCurrentLoad";
+import useNotFoundRedirect from "../../../hooks/useNotFoundRedirect";
 import actions from "../../../redux/actions";
 import JumpLink from "../navigateLink";
 import "./DocumentTemplate.scss";
@@ -10,27 +11,10 @@ import "./DocumentTemplate.scss";
 const DocumentTemplate: React.FC<{}> = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const params = useParams();
   const navigate = useNavigate();
-  const {
-    hasNext,
-    hasPrev,
-    documents,
-    currentDocument: document,
-    currentChecked,
-  } = useSelector((state: any) => state.documents);
-
-  useEffect(() => {
-    if (params.id && documents.length) {
-      dispatch(actions.setCurrentDocument(params.id));
-    }
-  }, [params.id, documents]);
-
-  useEffect(() => {
-    if (currentChecked && !document) {
-      navigate("/404");
-    }
-  }, [document, currentChecked]);
+  const { hasNext, hasPrev, currentDocument: document } = useSelector((state: any) => state.documents);
+  useNotFoundRedirect();
+  useCurrentLoad();
 
   const removeElement = () => {
     dispatch(actions.DeleteDocument(document.id));

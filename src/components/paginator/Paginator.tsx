@@ -1,21 +1,13 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useSearchParams } from "react-router-dom";
+import React from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import arrowIcon from "../../assets/icons/arrow.svg";
-import actions from "../../redux/actions";
+import useSetPage from "../../hooks/useSetPage";
 import "./Paginator.scss";
 
 const Paginator: React.FC<{}> = () => {
-  const [searchParams, _] = useSearchParams();
-  const dispatch = useDispatch();
-  const { page, nextPage, documents } = useSelector((state: any) => state.documents);
-
-  useEffect(() => {
-    let pageParam = searchParams.get("page");
-    if (pageParam && documents.length) {
-      dispatch(actions.setPage(pageParam ? parseInt(pageParam) : 0));
-    }
-  }, [searchParams, documents]);
+  const { page, nextPage } = useSelector((state: any) => state.documents);
+  useSetPage();
 
   return (
     <div className="paginator-container">

@@ -5,7 +5,7 @@ const loadDocuments = (documents: IDocument[]) => ({ type: actionTypes.LOAD_DOCU
 
 const setCurrentDocument = (id: string) => ({ type: actionTypes.SET_CURRENT_DOCUMENT, payload: id });
 
-const setFormValue = (field: string, value: string) => ({
+const setFormValue = (field: string, value: string | boolean) => ({
   type: actionTypes.SET_FORM_VALUE,
   payload: { field, value },
 });
