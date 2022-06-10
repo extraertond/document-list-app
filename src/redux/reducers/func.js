@@ -46,6 +46,9 @@ const cleanDeletedDocument = (state, id) => {
 };
 
 const setStateDocument = (state, id) => {
+  state = functions.cleanFilters(state);
+  state.pageDocuments = state.backupDocuments;
+  state.documents = state.backupDocuments;
   const currentDocument = state.documents.find((doc) => doc.id.toString() === id);
   let index;
   if (currentDocument) {
@@ -56,6 +59,8 @@ const setStateDocument = (state, id) => {
   state.hasPrev = !!index && index > 0;
   state.hasNext = index === 0 ? !!state.documents.length : !!index && index < state.documents.length - 1;
   state.currentChecked = true;
+
+  return state;
 };
 
 const saveStateDocument = (state) => {
@@ -69,8 +74,8 @@ const saveStateDocument = (state) => {
     state.form = formService.clearForm(state.form);
     return state;
   }
-
   state.form = formDocument;
+
   return state;
 };
 
