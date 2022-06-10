@@ -41,5 +41,6 @@ Pendiente
 ## Funcionalidad extra
 
 Como funcionalidad extra se ha añadido un Header donde se aglutina un logo para volver al listado de documentos, el buscador solicitado por tipo, y uno extra para filtrar por título. Otra funcionalidad extra añadida es la previsualización de la imagen cuando la url tiene el formato correcto, en el formulario para crear un documento.
+La última funcionalidad extra añadida es un apartado de documentos visitados recientemente, el cual es un buffer con los 3 últimos documentos visitados, siendo actualizado como una pila FIFO. Se muestra el título de cada documento y nos lleva a su ficha.
 
 ### Néstor Fernández González
