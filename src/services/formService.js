@@ -21,17 +21,24 @@ const setForbiddenFields = (docType, form) => {
 
 const checkForm = (docType, form) => {
   form.valid.value = true;
-  form = checkEmptyField(form, "title");
-  form = checkEmptyField(form, "type");
+  form = checkEmptyField("title", form);
+  form = checkEmptyField("type", form);
 
   if (["custom", "advanced"].includes(docType)) {
-    form = checkEmptyField(form, "text");
+    form = checkEmptyField("text", form);
   } else {
     form.text.errored = false;
     form.text.errorText = "";
   }
   if (docType === "advanced") {
-    form = checkEmptyField(form, "image");
+    form = checkEmptyField("image", form);
+    if (!form.image.errored) {
+      if (!checkUrl(form.image.value)) {
+        form.valid.value = false;
+        form.image.errored = true;
+        form.image.errorText = "form.error.bad-format";
+      }
+    }
   } else {
     form.image.errored = false;
     form.image.errorText = "";
@@ -44,7 +51,7 @@ const checkForm = (docType, form) => {
   return form;
 };
 
-const checkEmptyField = (form, key) => {
+const checkEmptyField = (key, form) => {
   if (!form[key].value) {
     form.valid.value = false;
     form[key].errored = true;

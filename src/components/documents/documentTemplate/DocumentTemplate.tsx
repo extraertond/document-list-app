@@ -5,7 +5,7 @@ import { HOME_URL as homeUrl } from "../../../config/constants";
 import useCurrentLoad from "../../../hooks/useCurrentLoad";
 import useNotFoundRedirect from "../../../hooks/useNotFoundRedirect";
 import actions from "../../../redux/actions";
-import JumpLink from "../navigateLink";
+import JumpLink from "../jumpLink";
 import "./DocumentTemplate.scss";
 
 const DocumentTemplate: React.FC<{}> = () => {

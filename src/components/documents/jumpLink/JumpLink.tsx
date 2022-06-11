@@ -14,11 +14,7 @@ const JumpLink: React.FC<IProps> = ({ id, enabled, direction }: IProps) => {
 
   return (
     <Link
-      className={`
-        ${enabled ? "" : "disabled "}
-        ${direction === "next" ? "reverse " : ""}
-        row link
-        `}
+      className={`row link${enabled ? "" : " disabled"}${direction === "next" ? " reverse" : ""}`}
       to={`/document/${id}`}
     >
       <img className={direction} alt={`${direction}-document`} src={arrowIcon}></img>

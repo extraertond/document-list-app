@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import DocumentCard from "../../components/documents/documentCard";
 import Paginator from "../../components/paginator";
-import SearchBar from "../../components/SearchBar";
+import SearchBar from "../../components/searchBar";
 import IDocument from "../../models/IDocument";
 import "./DocumentList.scss";
 

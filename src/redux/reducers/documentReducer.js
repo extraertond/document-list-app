@@ -1,4 +1,4 @@
-import { PAGE_SIZE as pageSize, DOCUMENT_TYPES as docTypes } from "../../config/constants";
+import { PAGE_SIZE as pageSize } from "../../config/constants";
 import { DOCUMENT_FORM_TEMPLATE as formTemplate, SEARCH_FORM_TEMPLATE as searchForm } from "../../config/forms";
 import documentService from "../../services/documentService";
 import formService from "../../services/formService";

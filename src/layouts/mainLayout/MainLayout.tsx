@@ -1,6 +1,6 @@
 import { BrowserRouter as Router } from "react-router-dom";
-import PageRoutes from "../../pageRoutes";
-import Header from "../../components/Header";
+import PageRoutes from "../../pages/pageRoutes";
+import Header from "../../components/header";
 import FloatingAddButton from "../../components/floatingAddButton";
 import useDocsLoad from "../../hooks/useDocsLoad";
 import "./MainLayout.scss";

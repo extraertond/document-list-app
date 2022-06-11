@@ -1,7 +1,7 @@
 import { Routes as ReactRoutes, Route } from "react-router-dom";
-import DocumentList from "../pages/documentList";
-import Document from "../pages/document";
-import NotFound from "../pages/notFound";
+import DocumentList from "../documentList";
+import Document from "../document";
+import NotFound from "../notFound";
 
 const PageRoutes: React.FC<{}> = () => {
   return (

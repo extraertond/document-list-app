@@ -10,7 +10,7 @@ El control del estado de la aplicación se controla con Redux, hay un store prin
 
 Para la internacionalización se ha seguido el estandar i18n y la librería i18next, aunque solo haya un idioma, el control de las etiquetas se lleva ahí y en caso de querer añadir nuevas traducciones solo habría que añadir un fichero JSON con las mismas.
 
-## Mobile first
+## Mobile first (offline first)
 
 Se ha seguido el patrón de diseño mobile first, de tal forma que todo el desarrollo de la aplicación se ha hecho siguiendo un modelo móvil (Iphone 12), procurando que todos los elementos fueran flexibles para tener que aplicar la mejor cantidad posible de media queries. El diseño de la interfaz en teléfono es muy bueno, puesto que este ha sido el centro del desarollo, pero escala bien a ventanas de ordenadores.
 
@@ -36,7 +36,7 @@ Se ha añadido una paginación de 5 en 5 documentos, siendo este parámetro modi
 
 ## Testing
 
-Pendiente
+Para el testing se ha usado react-testing-library como librería principal para las pruebas de componentes React, y jest puramente para el testing de servicios y funciones auxiliares. Para este último se ha seguido un estrategía de tests unitarios, mientras que para el de componentes de tests funciones, comprobando que se muestran los componentes y textos que deben mostrarse y que el funcionamiento de las acciones como botones es correcto. Se ha conseguido cerca del 40% de cobertura, haciéndose al menos un test de cada tipo de componente / función / servicio.
 
 ## Funcionalidad extra
 

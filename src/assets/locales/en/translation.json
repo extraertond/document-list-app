@@ -19,10 +19,14 @@
     "filter-text": "Filter by title",
     "preview-image": "Preview image",
     "error": {
-      "mandatory": "This field is mandatory"
+      "mandatory": "This field is mandatory",
+      "bad-format": "The format is incorrect"
     }
   },
   "recently": {
     "recently-visited": "Recently visited"
+  },
+  "not-found": {
+    "title": "Page Not Found"
   }
 }
