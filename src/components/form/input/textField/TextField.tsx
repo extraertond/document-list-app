@@ -28,7 +28,7 @@ const TextField: React.FC<IProps> = ({
         {large ? (
           <textarea
             maxLength={maxLength ? maxLength : 250}
-            className={`${field.errored ? "errored" : ""}`}
+            className={`basic-input${field.errored ? " errored" : ""}`}
             disabled={field.disabled}
             onChange={(e: any) => {
               onChange(e.target.value);
@@ -39,7 +39,7 @@ const TextField: React.FC<IProps> = ({
         ) : (
           <input
             maxLength={maxLength ? maxLength : 100}
-            className={`${field.errored ? "errored" : ""}`}
+            className={`basic-input${field.errored ? " errored" : ""}`}
             disabled={field.disabled}
             onChange={(e: any) => {
               onChange(e.target.value);
